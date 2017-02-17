@@ -3,16 +3,28 @@
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 Route::group(['middleware' => ['web']], function () {
     /**
      * Show User Dashboard
      */
     Route::get('/', function () {
+
+        $users = DB::table('users')->paginate(5);
         return view('welcome', [
-            'users' => User::orderBy('created_at', 'asc')->get()
+            'users' =>  $users
         ]);
     });
+     /**
+     * get User Details
+     */
+    Route::get('/user/details/{id}', function ($id) {
+		return view('details', [
+            'user' => User::find($id)
+        ]);
+    });
+
 	/**
      * Add User Dashboard
      */
@@ -32,13 +44,16 @@ Route::group(['middleware' => ['web']], function () {
      * Delete User
      */
     Route::delete('/user/delete/{id}', function ($id) {
+        $user = User::findOrFail($id);
+        $image_path = '../uploads/' . $user->user_image;
+        File::Delete($image_path);
         User::findOrFail($id)->delete();
 
         return redirect('/');
     });
 	
     /**
-     * redirect to update page
+     * get update page
      */
     Route::get('/user/update/{id}', function ($id) {
 		return view('update', [
@@ -49,7 +64,7 @@ Route::group(['middleware' => ['web']], function () {
 	
 	
 	    /**
-     * Update User
+     * post update page
      */
     Route::post('user/update', function (Request $request) {
 		

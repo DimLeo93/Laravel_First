@@ -3,24 +3,26 @@
 @section('content')
     <div class="container">
         <div class="col-sm-offset-2 col-sm-8">
-            <!-- Current Users -->
-            @if (count($users) > 0)
+            <!-- Current User -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Current Users
+                        Details for {{$user->name}}
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
-                                <th>User Name</th>
-								<th>User Email</th>
+                                <th>User Photo</th>
+								<th>User Name</th>
+                                <th>User Email</th>
+                                <th>User Password</th>
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
                                     <tr>
-                                        <td class="table-text"><div>{{ $user->name }}</div></td>
-                                        <td class="table-text"><div>{{ $user->email }}</div></td>
+                                        <td class="table-text" ><div><?php echo $user->user_image;?></div></td>
+                                        <td class="table-text"><div><?php echo $user->name;?></div></td>
+                                        <td class="table-text"><div><?php echo $user->email;?></div></td>
+                                        <td class="table-text" ><div><?php echo $user->password;?></div></td>                                        
                                         <!-- Update Button -->										
                                         <td>
                                             <form action="{{ url('user/update/'.$user->id) }}" method="GET">
@@ -28,16 +30,6 @@
 
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-btn fa-trash"></i>Update Info
-                                                </button>
-                                            </form>
-                                        </td>	
-                                        <!-- Update Button -->										
-                                        <td>
-                                            <form action="{{ url('user/details/'.$user->id) }}" method="GET">
-                                                {{ csrf_field() }}
-
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="fa fa-btn fa-trash"></i>Get Details
                                                 </button>
                                             </form>
                                         </td>		
@@ -53,13 +45,10 @@
                                             </form>
                                         </td>			
                                     </tr>
-                                @endforeach
                             </tbody>
                         </table>
-                    {{ $users->links() }}
                     </div>
                 </div>
-            @endif
         </div>
     </div>
 @endsection

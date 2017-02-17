@@ -27,7 +27,7 @@ public function upload(Request $request) {
 		else {
 			// checking file is valid.
 		   	  if ($request->hasFile('image')) {
-				  $destinationPath = 'uploads'; // upload path
+				  $destinationPath = '../uploads'; // upload path
 				  $extension = $request->image->getClientOriginalExtension(); // getting image extension
 				  $fileName = rand(11111,99999).'.'.$extension; // renameing image
 				  $request->image->move($destinationPath, $fileName); // uploading file to given path
@@ -37,7 +37,7 @@ public function upload(Request $request) {
 				  $user->email = $request->email;
 				  $user->password = $request->password;
 				  if ($request->hasFile('image')) {
-					  $user->user_image = $request->file('image')->getClientOriginalName();
+					  $user->user_image = $fileName;
 				  }
 				  $user->save();
 				  Session::flash('success', 'Upload successfully'); 
