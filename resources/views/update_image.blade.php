@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <label for="user-id" class="col-sm-3 control-label"></label>
                             <div class="col-sm-6">
-                                <input type="hidden" name="id" id="user-id" class="form-control" value="<?php echo $user->id;?>">
+                                <input type="hidden" name="id" id="user-id" class="form-control" value="{{$user->id}}">
                             </div>
                         </div>
 						 <!-- User Image -->

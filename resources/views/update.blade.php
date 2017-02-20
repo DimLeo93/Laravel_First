@@ -27,7 +27,7 @@
                             <label for="user-name" class="col-sm-3 control-label">User Name</label>
 
                             <div class="col-sm-6">
-							   <input type="text" name="name" id="user-name" class="form-control" value="<?php echo $user->name;?>">
+							   <input type="text" name="username" id="user-name" class="form-control" value="<?php echo $user->username;?>">
                             </div>
                         </div>
 						 <!-- User Email -->
@@ -45,7 +45,23 @@
                             <div class="col-sm-6">
                                 <input type="password" name="password" id="user-password" class="form-control" value="<?php echo $user->password;?>">
                             </div>
-                        </div>			
+                        </div>	
+                        <!-- First Name -->
+                        <div class="form-group">
+                            <label for="first-name" class="col-sm-3 control-label">First Name</label>
+
+                            <div class="col-sm-6">
+							   <input type="text" name="firstname" id="first-name" class="form-control" value="<?php echo $user->fname;?>">
+                            </div>
+                        </div>
+                        <!-- User Name -->
+                        <div class="form-group">
+                            <label for="last-name" class="col-sm-3 control-label">Last Name</label>
+
+                            <div class="col-sm-6">
+							   <input type="text" name="lastname" id="last-name" class="form-control" value="<?php echo $user->lname;?>">
+                            </div>
+                        </div>						
                         <!-- Update User Button -->
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">

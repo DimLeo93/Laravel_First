@@ -11,18 +11,32 @@
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
-                                <th>User Photo</th>
-								<th>User Name</th>
-                                <th>User Email</th>
-                                <th>User Password</th>
+                                <th>Photo</th>
+								<th>Username</th>
+                                <th>Email Address</th>
+                                <th>Password</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>                               
+
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
                                     <tr>
-                                        <td class="table-text" ><div><?php echo $user->user_image;?></div></td>
-                                        <td class="table-text"><div><?php echo $user->name;?></div></td>
-                                        <td class="table-text"><div><?php echo $user->email;?></div></td>
-                                        <td class="table-text" ><div><?php echo $user->password;?></div></td>                                        
+                                        <?php 
+                                        if($user->user_image == NULL){
+                                                $image = 'default.jpg';
+                                        }
+                                        else{
+                                            $image = $user->user_image ;
+                                        }
+                                        ?>
+                                        <td class="table-text"><div> <img src="{{URL::asset('uploads/'.$image )}}" alt="profile Pic" height="60" width="60"></div></td>        
+                                        <td class="table-text"><div>{{$user->username}}</div></td>
+                                        <td class="table-text"><div>{{$user->email}}</div></td>
+                                        <td class="table-text" ><div>{{$user->password}}</div></td> 
+                                        <td class="table-text" ><div>{{$user->fname}}</div></td>
+                                        <td class="table-text"><div>{{$user->lname}}</div></td>
+                                      
                                         <!-- Update Button -->										
                                         <td>
                                             <form action="{{ url('user/update/'.$user->id) }}" method="GET">

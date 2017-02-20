@@ -15,13 +15,28 @@
                     <!-- New User Form -->
                     <form action="{{ url('user')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        <!-- User First Name -->
+                        <div class="form-group">
+                            <label for="first-name" class="col-sm-3 control-label">First Name</label>
 
-                        <!-- User Name -->
+                            <div class="col-sm-6">
+                                <input type="text" name="firstname" id="first-name" class="form-control" value="{{ old('user') }}">
+                            </div>
+                        </div>						
+                        <!-- User Last Name -->
+                        <div class="form-group">
+                            <label for="last-name" class="col-sm-3 control-label">Last Name</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" name="lastname" id="last-name" class="form-control" value="{{ old('user') }}">
+                            </div>
+                        </div>
+                        <!-- User UserName -->
                         <div class="form-group">
                             <label for="user-name" class="col-sm-3 control-label">User Name</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="name" id="user-name" class="form-control" value="{{ old('user') }}">
+                                <input type="text" name="username" id="user-name" class="form-control" value="{{ old('user') }}">
                             </div>
                         </div>
 						 <!-- User Email -->

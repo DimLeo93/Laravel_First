@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="col-sm-offset-2 col-sm-8">
+        <div class="col-sm col-sm-12">
             <!-- Current Users -->
             @if (count($users) > 0)
                 <div class="panel panel-default">
@@ -16,16 +16,30 @@
                     </form>
                         <table class="table table-striped task-table">
                             <thead>
-                                <th>User Name</th>
-								<th>User Email</th>
+                                <th>Photo</th>                        
+                                <th>Username</th>
+								<th>Email Address</th>
+                                <th>First Name</th>
+								<th>Last Name</th>								
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td class="table-text"><div>{{ $user->name }}</div></td>
+                                        <?php 
+                                        if($user->user_image == NULL){
+                                                $image = 'default.jpg';
+                                        }
+                                        else{
+                                            $image = $user->user_image ;
+                                        }
+                                        ?>
+                                        <td class="table-text"><div> <img src="{{URL::asset('uploads/'.$image )}}" alt="profile Pic" height="60" width="60"></div></td>        
+                                        <td class="table-text"><div>{{ $user->username }}</div></td>
                                         <td class="table-text"><div>{{ $user->email }}</div></td>
-                                        <!-- Update Info Button -->										
+                                        <td class="table-text"><div>{{ $user->fname }}</div></td>
+                                        <td class="table-text"><div>{{ $user->lname }}</div></td>
+										<!-- Update Info Button -->										
                                         <td>
                                             <form action="{{ url('user/update/'.$user->id) }}" method="GET">
                                                 {{ csrf_field() }}

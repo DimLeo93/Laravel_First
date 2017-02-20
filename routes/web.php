@@ -14,8 +14,10 @@ Route::group(['middleware' => ['web']], function () {
 
         $search = $request->get('search');
 
-        $users = User::where('name', 'like', "%$search%")
+        $users = User::where('username', 'like', "%$search%")
             ->orWhere('email', 'like', "%$search%")
+			->orWhere('fname', 'like', "%$search%")
+			->orWhere('lname', 'like', "%$search%")
             ->paginate(5)
             ->appends(['search' => $search])
         ;
@@ -93,9 +95,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('user/update', function (Request $request) {
 		
          $validator = Validator::make($request->all(), [
-            'name' => 'required|max:50',
+            'username' => 'required|max:50',
 			'email' => 'required',
-			'password' => 'required|max:50',
+			'password' => 'required|max:50'
         ]);
 		
 		if ($validator->fails()) {
@@ -104,9 +106,11 @@ Route::group(['middleware' => ['web']], function () {
                 ->withErrors($validator);
         }
 		$user = User::find($request->id);
-        $user->name = $request->name;
-	    $user->email = $request->email;
-	    $user->password = $request->password;
+		$user->fname = $request->firstname;
+		$user->lname = $request->lastname;
+		$user->username = $request->username;
+		$user->email = $request->email;
+		$user->password = $request->password;
         $user->save();
 
         return redirect('/');
