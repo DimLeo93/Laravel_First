@@ -9,12 +9,18 @@ Route::group(['middleware' => ['web']], function () {
     /**
      * Show User Dashboard
      */
-    Route::get('/', function () {
+    Route::get('/', function (Request $request) {
 
-        $users = DB::table('users')->paginate(5);
-        return view('welcome', [
-            'users' =>  $users
-        ]);
+
+        $search = $request->get('search');
+
+        $users = User::where('name', 'like', "%$search%")
+            ->orWhere('email', 'like', "%$search%")
+            ->paginate(5)
+            ->appends(['search' => $search])
+        ;
+
+        return view('welcome', compact('users'));
     });
      /**
      * get User Details
@@ -37,7 +43,14 @@ Route::group(['middleware' => ['web']], function () {
     /**
      * Add New User
      */
-    Route::post('/user', 'ApplyController@upload');
+    Route::post('/user', 'ApplyController@upload'); 
+    
+     /**
+     * Update User Image
+     */
+    Route::post('/user/update_image', 'UpdateImageController@upload_image');
+
+
   
 
     /**
@@ -53,29 +66,40 @@ Route::group(['middleware' => ['web']], function () {
     });
 	
     /**
-     * get update page
+     * get update info page
      */
     Route::get('/user/update/{id}', function ($id) {
 		return view('update', [
             'user' => User::find($id)
         ]);
     });
+
+
+    	
+    /**
+     * get update image page
+     */
+    Route::get('/user/update_image/{id}', function ($id) {
+		return view('update_image', [
+            'user' => User::find($id)
+        ]);
+    });
 	
 	
 	
-	    /**
+     /**
      * post update page
      */
     Route::post('user/update', function (Request $request) {
 		
          $validator = Validator::make($request->all(), [
             'name' => 'required|max:50',
-			'email' => 'required|email|unique:users,email',
+			'email' => 'required',
 			'password' => 'required|max:50',
         ]);
 		
 		if ($validator->fails()) {
-            return redirect('/user/update')
+            return redirect('/')
                 ->withInput()
                 ->withErrors($validator);
         }

@@ -10,6 +10,10 @@
                         Current Users
                     </div>
                     <div class="panel-body">
+                    <form action="" method="GET">
+                        <input type="text" name="search" value=""/>
+                        <button type"submit">Search</button>
+                    </form>
                         <table class="table table-striped task-table">
                             <thead>
                                 <th>User Name</th>
@@ -21,7 +25,7 @@
                                     <tr>
                                         <td class="table-text"><div>{{ $user->name }}</div></td>
                                         <td class="table-text"><div>{{ $user->email }}</div></td>
-                                        <!-- Update Button -->										
+                                        <!-- Update Info Button -->										
                                         <td>
                                             <form action="{{ url('user/update/'.$user->id) }}" method="GET">
                                                 {{ csrf_field() }}
@@ -31,7 +35,17 @@
                                                 </button>
                                             </form>
                                         </td>	
-                                        <!-- Update Button -->										
+                                        <!-- Update Image Button -->	
+                                        <td>
+                                            <form action="{{ url('user/update_image/'.$user->id) }}" method="GET">
+                                                {{ csrf_field() }}
+
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fa fa-btn fa-trash"></i>Update Photo
+                                                </button>
+                                            </form>
+                                        </td>	
+                                        <!-- Details Button -->										
                                         <td>
                                             <form action="{{ url('user/details/'.$user->id) }}" method="GET">
                                                 {{ csrf_field() }}
@@ -56,7 +70,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                    {{ $users->links() }}
+                    {{ $users->render() }}
                     </div>
                 </div>
             @endif

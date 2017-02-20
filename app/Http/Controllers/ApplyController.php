@@ -20,7 +20,7 @@ public function upload(Request $request) {
         ]);
 		
 		if ($validator->fails()) {
-            return redirect('/user')
+            return redirect('/add')
                 ->withInput()
                 ->withErrors($validator);
         }
