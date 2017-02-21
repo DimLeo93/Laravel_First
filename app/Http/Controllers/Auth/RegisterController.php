@@ -38,6 +38,13 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+	
+	public function showRegistrationForm()
+	 {
+        return view('users', [
+            'users' => User::orderBy('created_at', 'asc')->get()
+        ]);
+    }
 
     /**
      * Get a validator for an incoming registration request.
@@ -69,3 +76,7 @@ class RegisterController extends Controller
         ]);
     }
 }
+
+
+
+

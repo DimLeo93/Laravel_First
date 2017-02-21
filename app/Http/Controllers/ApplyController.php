@@ -8,6 +8,7 @@ use Redirect;
 use Session;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ApplyController extends Controller {
 public function upload(Request $request) {
@@ -44,13 +45,13 @@ public function upload(Request $request) {
 			$user->lname = $request->lastname;
 			$user->username = $request->username;
 			$user->email = $request->email;
-			$user->password = $request->password;
+			$user->password = Hash::make($request->password);
 			if ($request->hasFile('image')) {
 				$user->user_image = $fileName;
 			}
 			$user->save();
 			Session::flash('success', 'Upload successfully'); 
-			return Redirect::to('/');
+			return Redirect::to('/home');
   }
 			
 }

@@ -5,32 +5,35 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-Route::group(['middleware' => ['web']], function () {
-    /**
-     * Show User Dashboard
+
+Route::group(['middleware' => 'auth'], function () {
+
+
+
+	    /**
+     * lala
      */
     Route::get('/', function (Request $request) {
 
 
-        $search = $request->get('search');
-
-        $users = User::where('username', 'like', "%$search%")
-            ->orWhere('email', 'like', "%$search%")
-			->orWhere('fname', 'like', "%$search%")
-			->orWhere('lname', 'like', "%$search%")
-            ->paginate(5)
-            ->appends(['search' => $search])
-        ;
-
-        return view('welcome', compact('users'));
+        return view('first');
     });
+	
+     /**
+     * logout
+     */
+	Route::get('logout', function () {
+	Auth::logout();
+     return redirect('/');
+    });
+	
      /**
      * get User Details
      */
     Route::get('/user/details/{id}', function ($id) {
-		return view('details', [
-            'user' => User::find($id)
-        ]);
+		
+		$user = User::find($id);
+		return view('details',compact('user'));
     });
 
 	/**
@@ -45,7 +48,7 @@ Route::group(['middleware' => ['web']], function () {
     /**
      * Add New User
      */
-    Route::post('/user', 'ApplyController@upload'); 
+    Route::post('/register', 'ApplyController@upload'); 
     
      /**
      * Update User Image
@@ -64,7 +67,7 @@ Route::group(['middleware' => ['web']], function () {
         File::Delete($image_path);
         User::findOrFail($id)->delete();
 
-        return redirect('/');
+        return redirect('/home');
     });
 	
     /**
@@ -110,10 +113,15 @@ Route::group(['middleware' => ['web']], function () {
 		$user->lname = $request->lastname;
 		$user->username = $request->username;
 		$user->email = $request->email;
-		$user->password = $request->password;
+		$user->password = Hash::make($request->password);
         $user->save();
 
         return redirect('/');
     });
 	
+	Route::get('/home', 'HomeController@index');
+
 });
+
+Auth::routes();
+

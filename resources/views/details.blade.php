@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="top-content">     	
+  <div class="inner-bg">
     <div class="container">
-        <div class="col-sm-offset-2 col-sm-8">
+        <div class="col-sm-2 col-sm-8">
             <!-- Current User -->
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Details for {{$user->name}}
+                    <div class="panel panel-default">
+                        Details for {{$user->username}}
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped task-table">
@@ -14,7 +16,6 @@
                                 <th>Photo</th>
 								<th>Username</th>
                                 <th>Email Address</th>
-                                <th>Password</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>                               
 
@@ -33,7 +34,6 @@
                                         <td class="table-text"><div> <img src="{{URL::asset('uploads/'.$image )}}" alt="profile Pic" height="60" width="60"></div></td>        
                                         <td class="table-text"><div>{{$user->username}}</div></td>
                                         <td class="table-text"><div>{{$user->email}}</div></td>
-                                        <td class="table-text" ><div>{{$user->password}}</div></td> 
                                         <td class="table-text" ><div>{{$user->fname}}</div></td>
                                         <td class="table-text"><div>{{$user->lname}}</div></td>
                                       
@@ -65,4 +65,21 @@
                 </div>
         </div>
     </div>
+  </div>
+ </div>	
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,19 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
         <div class="col-sm col-sm-12">
             <!-- Current Users -->
+				<div class="form-box">
+					<div class="form-bottom">
+						<form action="" method="GET">
+							<input type="text" name="search" value="" id="search"/>
+							<button type"submit">Search</button>
+						</form>
+						</div>
+					</div>
             @if (count($users) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Current Users
                     </div>
                     <div class="panel-body">
-                    <form action="" method="GET">
-                        <input type="text" name="search" value=""/>
-                        <button type"submit">Search</button>
-                    </form>
+
                         <table class="table table-striped task-table">
                             <thead>
                                 <th>Photo</th>                        
@@ -34,7 +40,7 @@
                                             $image = $user->user_image ;
                                         }
                                         ?>
-                                        <td class="table-text"><div> <img src="{{URL::asset('uploads/'.$image )}}" alt="profile Pic" height="60" width="60"></div></td>        
+                                        <td class="table-text"><div> <img src="{{URL::asset('uploads/'.$image )}}" alt="profile Pic" height="45" width="45"></div></td>        
                                         <td class="table-text"><div>{{ $user->username }}</div></td>
                                         <td class="table-text"><div>{{ $user->email }}</div></td>
                                         <td class="table-text"><div>{{ $user->fname }}</div></td>
@@ -90,4 +96,5 @@
             @endif
         </div>
     </div>
+
 @endsection

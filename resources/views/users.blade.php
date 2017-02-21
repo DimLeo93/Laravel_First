@@ -1,14 +1,40 @@
 @extends('layouts.app')
 
-@section('content')
-    <div class="container">
-        <div class="col-sm-offset-2 col-sm-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    New User
-                </div>
 
-                <div class="panel-body">
+
+
+
+ <div class="top-content">
+        	
+            <div class="inner-bg">
+                <div class="container">
+                	
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Tripark</strong>.com</h1>
+                            <div class="description">
+                            	<p>
+	                            	The easy way to travel <strong> #tripark</strong> 
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                        	
+                        	<div class="form-box">
+	                        	<div class="form-top">
+	                        		<div class="form-top-left">
+	                        			<h3>Sign Up for a new account</h3>
+	                            		<p>Fill the registration form</p>
+	                        		</div>
+	                        		<div class="form-top-right">
+	                        			<i class="fa fa-lock"></i>
+	                        		</div>
+	                            </div>
+	                    <div class="form-bottom">
+						                <div class="panel-body">
                     <!-- Display Validation Errors -->
                     @include('common.errors')
 
@@ -74,7 +100,12 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-@endsection
+			                    </div>
+		                    </div>
+		                
+	                        
+                        </div>
+						</div>
+						</div>
+						</div>
+						</div>
