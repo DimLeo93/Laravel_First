@@ -43,7 +43,7 @@
                             <label for="user-password" class="col-sm-3 control-label">User Password</label>
 
                             <div class="col-sm-6">
-                                <input type="password" name="password" id="user-password" class="form-control" value="<?php echo $user->password;?>">
+                                <input type="password" name="password" id="user-password" class="form-control">
                             </div>
                         </div>	
                         <!-- First Name -->

@@ -16,7 +16,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function (Request $request) {
 
 
-        return view('first');
+         return redirect('/home');
     });
 	
      /**
@@ -40,10 +40,11 @@ Route::group(['middleware' => 'auth'], function () {
      * Add User Dashboard
      */
     Route::get('/add', function () {
-        return view('users', [
-            'users' => User::orderBy('created_at', 'asc')->get()
-        ]);
+        return view('add');
     });
+
+
+    Route::post('/add', 'ApplyController@upload'); 
 
     /**
      * Add New User

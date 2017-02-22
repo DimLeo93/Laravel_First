@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-
-
-
-
  <div class="top-content">
         	
             <div class="inner-bg">
@@ -26,8 +22,8 @@
                         	<div class="form-box">
 	                        	<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Sign Up for a new account</h3>
-	                            		<p>Fill the registration form</p>
+	                        			<h3>Add a new User to the system</h3>
+	                            		<p>Fill the form below</p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-lock"></i>
@@ -39,7 +35,7 @@
                     @include('common.errors')
 
                     <!-- New User Form -->
-                    <form action="{{ url('user')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{ url('add')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <!-- User First Name -->
                         <div class="form-group">

@@ -53,7 +53,7 @@
 						<ul class="nav navbar-nav navbar-right">
                             <!-- NAV -->
                         @if (!Auth::guest())
-							<li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-register"></span>Sign Up</a></li>
+							<li><a href="{{ url('add')}}"><span class="glyphicon glyphicon-register"></span>Add User</a></li>
 							<li><a href="{{ route('logout') }}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 													<li></li>
 						@else

@@ -14,14 +14,16 @@ class ApplyController extends Controller {
 public function upload(Request $request) {
 		
 	 $validator = Validator::make($request->all(), [
+		    'firstname' => 'required|max:50',
+            'lastname' => 'required|max:50',
             'username' => 'required|max:50',
 			'email' => 'required',
-			'password' => 'required|max:50'
-			
+			'password' => 'required'
+		
         ]);
 		
 		if ($validator->fails()) {
-            return redirect('/add')
+            return redirect('/home')
                 ->withInput()
                 ->withErrors($validator);
         }
@@ -31,9 +33,7 @@ public function upload(Request $request) {
 				  $destinationPath = 'uploads'; // upload path
 				  $extension = $request->image->getClientOriginalExtension(); // getting image extension
 				  $fileName = rand(11111,99999).'.'.$extension; // renameing image
-				  $request->image->move($destinationPath, $fileName); // uploading file to given path
-				  // sending back with message
-				  
+				  $request->image->move($destinationPath, $fileName); // uploading file to given path  
 			}
 			else {
 			  // sending back with error message.
