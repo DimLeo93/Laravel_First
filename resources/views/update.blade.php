@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <label for="user-id" class="col-sm-3 control-label"></label>
                             <div class="col-sm-6">
-                                <input type="hidden" name="id" id="user-id" class="form-control" value="<?php echo $user->id;?>">
+                                <input type="hidden" name="id" id="user-id" class="form-control" value="{{$user->id  or ""}} ">
                             </div>
                         </div>
                         <!-- User Name -->
@@ -27,7 +27,7 @@
                             <label for="user-name" class="col-sm-3 control-label">User Name</label>
 
                             <div class="col-sm-6">
-							   <input type="text" name="username" id="user-name" class="form-control" value="<?php echo $user->username;?>">
+							   <input type="text" name="username" id="user-name" class="form-control" value="{{$user->username or ""}}">
                             </div>
                         </div>
 						 <!-- User Email -->
@@ -35,7 +35,7 @@
                             <label for="user-email" class="col-sm-3 control-label">User Email</label>
 
                             <div class="col-sm-6">
-                                <input type="email" name="email" id="user-email" class="form-control" value="<?php echo $user->email;?>">
+                                <input type="email" name="email" id="user-email" class="form-control" value="{{$user->email or ""}}">
                             </div>
                         </div>
 						 <!-- User Password -->
@@ -51,15 +51,15 @@
                             <label for="first-name" class="col-sm-3 control-label">First Name</label>
 
                             <div class="col-sm-6">
-							   <input type="text" name="firstname" id="first-name" class="form-control" value="<?php echo $user->fname;?>">
+							   <input type="text" name="firstname" id="first-name" class="form-control" value="{{$user->fname or ""}}">
                             </div>
                         </div>
-                        <!-- User Name -->
+                        <!-- Last Name -->
                         <div class="form-group">
                             <label for="last-name" class="col-sm-3 control-label">Last Name</label>
 
                             <div class="col-sm-6">
-							   <input type="text" name="lastname" id="last-name" class="form-control" value="<?php echo $user->lname;?>">
+							   <input type="text" name="lastname" id="last-name" class="form-control" value="{{$user->lname or ""}}">
                             </div>
                         </div>						
                         <!-- Update User Button -->

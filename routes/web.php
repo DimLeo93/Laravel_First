@@ -91,6 +91,12 @@ Route::group(['middleware' => 'auth'], function () {
         ]);
     });
 	
+        /**
+     * get update image page
+     */
+    Route::get('/user/update', function () {
+		return view('update');
+    });
 	
 	
      /**
@@ -99,13 +105,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('user/update', function (Request $request) {
 		
          $validator = Validator::make($request->all(), [
+            'firstname' => 'required|max:50',
+            'lastname' => 'required|max:50',
             'username' => 'required|max:50',
 			'email' => 'required',
 			'password' => 'required|max:50'
         ]);
 		
 		if ($validator->fails()) {
-            return redirect('/')
+            return redirect('/user/update')
                 ->withInput()
                 ->withErrors($validator);
         }
