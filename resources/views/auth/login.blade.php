@@ -1,22 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="top-content">
-        	
-            <div class="inner-bg">
                 <div class="container">
-                	
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Tripark</strong>.com</h1>
-                            <div class="description">
-                            	<p>
-	                            	The easy way to travel <strong> #tripark</strong> 
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
-                    
+                	                
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2">
                         	
@@ -35,7 +21,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username" class="col-md-4 control-label">E-Mail / Username</label>
+                            <label for="username" class="col-md-3 control-label">E-Mail / Username</label>
 
                             <div class="col-md-6">
                                 <input id="username" type="text" class="form-control" name="username"  required autofocus>
@@ -49,7 +35,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-3 control-label">Password</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -63,7 +49,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div>
+                            <div class="col-sm-6 col-sm-offset-3">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
@@ -73,7 +59,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div >
+                            <div class="col-sm-6 col-sm-offset-3">
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
@@ -84,13 +70,10 @@
                             </div>
                         </div>
                     </form>
-			                    </div>
-		                    </div>
-		                
-	                        
-                        </div>
-						</div>
-						</div>
-						</div>
-						</div>
+                </div>
+            </div>       
+        </div>
+    </div>
+</div>
+
 @endsection

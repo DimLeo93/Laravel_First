@@ -1,20 +1,7 @@
 @extends('layouts.app')
 
- <div class="top-content">
-        	
-            <div class="inner-bg">
+@section('content')
                 <div class="container">
-                	
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Tripark</strong>.com</h1>
-                            <div class="description">
-                            	<p>
-	                            	The easy way to travel <strong> #tripark</strong> 
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
                     
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2">
@@ -30,7 +17,7 @@
 	                        		</div>
 	                            </div>
 	                    <div class="form-bottom">
-						                <div class="panel-body">
+						   <div class="panel-body">
                     <!-- Display Validation Errors -->
                     @include('common.errors')
 
@@ -101,7 +88,7 @@
 		                
 	                        
                         </div>
-						</div>
-						</div>
-						</div>
-						</div>
+                </div>
+        </div>
+
+@endsection

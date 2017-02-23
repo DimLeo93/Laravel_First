@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="container">
-        <div class="col-sm col-sm-12">
             <!-- Current Users -->
 				<div class="form-box">
 					<div class="form-bottom">
@@ -14,13 +13,16 @@
 						</div>
 					</div>
             @if (count($users) > 0)
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Current Users
-                    </div>
-                    <div class="panel-body">
+            <div class="form-box2">
+	                 <div class="form-top">
+	                    <div class="form-top-left">
+	                        <h3>Current Users</h3>
+	                      </div>
+	                  </div>
 
-                        <table class="table table-striped task-table">
+                <div>
+               	<div class="table-div">
+                        <table class="table">
                             <thead>
                                 <th>Photo</th>                        
                                 <th>Username</th>
@@ -40,11 +42,11 @@
                                             $image = $user->user_image ;
                                         }
                                         ?>
-                                        <td class="table-text"><div> <img src="{{URL::asset('uploads/'.$image )}}" alt="profile Pic" height="45" width="45"></div></td>        
-                                        <td class="table-text"><div>{{ $user->username }}</div></td>
-                                        <td class="table-text"><div>{{ $user->email }}</div></td>
-                                        <td class="table-text"><div>{{ $user->fname }}</div></td>
-                                        <td class="table-text"><div>{{ $user->lname }}</div></td>
+                                        <td><div> <img src="{{URL::asset('uploads/'.$image )}}" alt="profile Pic" height="45" width="45"></div></td>        
+                                        <td><div>{{ $user->username }}</div></td>
+                                        <td><div>{{ $user->email }}</div></td>
+                                        <td><div>{{ $user->fname }}</div></td>
+                                        <td><div>{{ $user->lname }}</div></td>
 										<!-- Update Info Button -->										
                                         <td>
                                             <form action="{{ url('user/update/'.$user->id) }}" method="GET">
@@ -60,7 +62,7 @@
                                             <form action="{{ url('user/update_image/'.$user->id) }}" method="GET">
                                                 {{ csrf_field() }}
 
-                                                <button type="submit" class="btn btn-primary">
+                                                <button type="submit" class="btn btn-default">
                                                     <i class="fa fa-btn fa-trash"></i>Update Photo
                                                 </button>
                                             </form>
@@ -91,10 +93,9 @@
                             </tbody>
                         </table>
                     {{ $users->render() }}
-                    </div>
+                  </div>
+                </div>
                 </div>
             @endif
         </div>
-    </div>
-
 @endsection

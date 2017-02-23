@@ -8,26 +8,25 @@
         <title>Tripark.com</title>
 
         <!-- CSS -->
-        <link rel="stylesheet"  href="{{URL::asset('http://fonts.googleapis.com/css?family=Roboto:400,100,300,500')}}">
-		href="{{ URL::asset('assets/css/bootstrap.min.css') }}"
-        <link rel="stylesheet" base href="{{URL::asset('assets/bootstrap/css/bootstrap.min.css')}}">
-        <link rel="stylesheet" base href="{{URL::asset('assets/font-awesome/css/font-awesome.min.css')}}">
-		<link rel="stylesheet" base href="{{URL::asset('assets/css/form-elements.css')}}">
-        <link rel="stylesheet" base href="{{URL::asset('assets/css/style.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('http://fonts.googleapis.com/css?family=Roboto:400,100,300,500')}}">
+        <link rel="stylesheet" href="{{URL::asset('assets/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('assets/font-awesome/css/font-awesome.min.css')}}">
+		<link rel="stylesheet" href="{{URL::asset('assets/css/form-elements.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('assets/css/style.css')}}">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <![endif]-->z
 
         <!-- Favicon and touch icons -->
         <link rel="shortcut icon" base href="{{URL::asset('assets/ico/favicon.png')}}">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" base href="{{URL::asset('assets/ico/apple-touch-icon-144-precomposed.png')}}">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" base href="{{URL::asset('assets/ico/apple-touch-icon-114-precomposed.png')}}">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" base href="{{URL::asset('assets/ico/apple-touch-icon-72-precomposed.png')}}">
-        <link rel="apple-touch-icon-precomposed" base href="{{URL::asset('assets/ico/apple-touch-icon-57-precomposed.png')}}">
+        <link rel="apple-touch-icon-precomposed" href="{{URL::asset('assets/ico/apple-touch-icon-57-precomposed.png')}}">
 
     </head>
 
@@ -64,8 +63,7 @@
                     <!-- /.navbar-collapse -->
                 </div>
                 <!-- /.container- -->
-            </nav>							
-
+            </nav>	
         @yield('content')
     </div>
 	
@@ -83,18 +81,5 @@
         		</div>
         	</div>
         </footer>
-
-<!-- =========================
-     SCRIPTS 
-============================== -->
-
-        <!-- Javascript -->
-		
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script> 
-		<script src="/js/app.js"></script>
-
 </body>
 </html>
