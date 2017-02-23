@@ -10,7 +10,7 @@
 	                        	<div class="form-top">
 	                        		<div class="form-top-left">
 	                        			<h3>Login to our site</h3>
-	                            		<p>Enter email and password to log on:</p>
+	                            		<p>Enter E-Mail / Username and password to log in:</p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-lock"></i>
@@ -63,10 +63,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-
+                               <div class="form-group">
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
+                               </div>
                             </div>
                         </div>
                     </form>

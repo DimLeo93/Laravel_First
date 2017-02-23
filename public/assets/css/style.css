@@ -6,7 +6,9 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
-	background-image: url('../img/backgrounds/1.jpg');
+	background-image: url('../img/backgrounds/2.jpg');
+	background-repeat:no-repeat;
+
 }
 
 .box {
