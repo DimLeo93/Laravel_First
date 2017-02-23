@@ -75,7 +75,7 @@
         			
         			<div class="col-sm-8 col-sm-offset-2">
         				<div class="footer-border"></div>
-        				<p>© 2016 Tripark.com All Rights Reserved</p>
+        				<p><strong>© 2017 Tripark.com All Rights Reserved</strong></p>
         			</div>
         			
         		</div>

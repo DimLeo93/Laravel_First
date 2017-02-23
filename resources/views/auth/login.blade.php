@@ -9,7 +9,8 @@
                         	<div class="form-box">
 	                        	<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Login to our site</h3>
+	                        			<h3><strong>Tripark.com </strong></h3>
+                                        <p>The easy way to travel <strong>#tripark </strong></p>
 	                            		<p>Enter E-Mail / Username and password to log in:</p>
 	                        		</div>
 	                        		<div class="form-top-right">

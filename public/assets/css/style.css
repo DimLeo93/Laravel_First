@@ -135,15 +135,16 @@ th {color: #fff;}
 
 footer {
 	padding-bottom: 70px;
-	color: #fff;
+	color: #000;
 }
 
 footer .footer-border {
 	width: 200px;
 	margin: 0 auto;
 	padding-bottom: 30px;
-	border-top: 1px solid #fff;
+	border-top: 1px solid #000;
 	border-top: 1px solid rgba(255, 255, 255, 0.6);
+	color: #000;
 }
 
 footer p { opacity: 0.8; }
