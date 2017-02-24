@@ -7,7 +7,7 @@ body {
     line-height: 30px;
     text-align: center;
 	background-image: url('../img/backgrounds/2.jpg');
-	background-repeat:no-repeat;
+	background-repeat:repeat;
 
 }
 
@@ -21,9 +21,9 @@ p {
 }
 
 .table-div {
-	background: #1F5974;
     background-repeat:no-repeat;
 	color: #fff;
+	background: #024385
 }
 
 strong { font-weight: 500; }
@@ -57,18 +57,17 @@ img { max-width: 100%; }
 
 .form-box {
 	margin-top: 70px;
-
 }
+
 .form-group {
 	color: #fff;
-
 }
 
 
 .id {
 	margin-top: 200px;
-
 }
+
 .form-top {
 	overflow: hidden;
 	padding: 0 25px 15px 25px;
@@ -123,7 +122,6 @@ th {color: #fff;}
 	width: 100%;
 }
 
-
 .middle-border {
 	min-height: 300px;
 	margin-top: 170px;
@@ -170,7 +168,6 @@ footer a:hover, footer a:focus { color: #fff; border-bottom: 1px dotted #fff; }
 			top: -9999px;
 			left: -9999px;
 			color: #fff;
-
 		}
 
 		tr { border: 3px solid #ccc; }
@@ -195,8 +192,6 @@ footer a:hover, footer a:focus { color: #fff; border-bottom: 1px dotted #fff; }
 			white-space: nowrap;
 			color: #fff;
 		}
-
-
 	}
 
 	/* Smartphones (portrait and landscape) ----------- */
